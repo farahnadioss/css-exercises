@@ -2,13 +2,20 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* SOLUTION */
+
+/*
+  - Add more classes to .small-para by chaining it with .para
+  - Make it more specific than .para that only contain one class
+*/
+
 .para,
 .small-para {
   color: hsl(0, 0%, 0%);
   font-weight: 800;
 }
 
-.small-para {
+.para.small-para {
   font-size: 14px;
   font-weight: 800;
 }
@@ -17,11 +24,32 @@ body {
   font-size: 22px;
 }
 
-.confirm {
-  background: green;
-  color: white;
-  font-weight: bold;
-} 
+/*
+  Other way:
+
+  - Use rule order advantage
+
+  .para,
+  .small-para {
+    color: hsl(0, 0%, 0%);
+    font-weight: 800;
+  }
+
+  .para {
+    font-size: 22px;
+  }
+
+  .small-para {
+    font-size: 14px;
+    font-weight: 800;
+  }
+*/
+
+/*
+  - Put the order of .confirm after .button
+  - .confirm has role order advantage
+*/
+
 
 .button {
   background-color: rgb(255, 255, 255);
@@ -29,7 +57,36 @@ body {
   font-size: 20px;
 }
 
-.child {
+.confirm {
+  background: green;
+  color: white;
+  font-weight: bold;
+} 
+
+/*
+  Other way:
+
+  - Add more classes by chaining it 
+
+  .button.confirm {
+    background: green;
+    color: white;
+    font-weight: bold;
+  }
+
+  .button {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+  }
+*/
+
+/* 
+  - Add more class to .child by chaining it to .text to make it more specific 
+  - Two classes is more specific than a class and a type selector
+*/
+
+.text.child {
   color: rgb(0, 0, 0);
   font-weight: 800;
   font-size: 14px;
@@ -40,3 +97,37 @@ div.text {
   font-size: 22px;
   font-weight: 100;
 }
+
+/*
+  Other ways:
+
+  - Add another selector (.text)
+
+  .text .child {
+    color: rgb(0, 0, 0);
+    font-weight: 800;
+    font-size: 14px;
+  }
+
+  div.text {
+    color: rgb(0, 0, 0);
+    font-size: 22px;
+    font-weight: 100;
+  }
+
+  or
+
+  - Add another selector (div) and move the order after div.text
+  
+  div.text {
+  color: rgb(0, 0, 0);
+  font-size: 22px;
+  font-weight: 100;
+  }
+
+  div.child {
+  color: rgb(0, 0, 0);
+  font-weight: 800;
+  font-size: 14px;
+  }
+*/
